@@ -1,5 +1,14 @@
+/* Contents */
+    /* Page Structure  */
+    /* Page Styles */
+    /* Control Space Styling */
+    /* Game Space Styling */
+    /* Setting Space Styling */
+
+/* Page Structure  */
+
 html {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
 }
 
@@ -29,18 +38,102 @@ html {
     color: white;
     text-align: center;
     padding: 1rem 0;
+    margin-top: 5rem;
     width: 100%;
 }
 
-.controlSpace {
-    height: 3rem;
-    width: 90%;
-    margin: auto;
+/* Page Styles */
+
+h1 {
+    padding: 2rem;
+    font-size: 2rem;
 }
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover, 
+a:focus {
+    text-decoration: underline;
+}
+
+/* Control Space Styling */
+
+.controlSpace {
+    display: flex;
+    height: 3rem;
+    width: 300px;
+    margin: 3rem auto;
+}
+
+.control {
+    display: inline-block;
+    align-self: center;
+    text-align: center;
+    flex-grow: 1;
+    padding: 1rem 0;
+    margin: 0.5rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.blackBox {
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: black;
+}
+
+.colorBox {
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: black;
+}
+
+/* Game Space Styling */
 
 .gameSpace {
     background-color: black;
-    width: 90%;
-    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 320px;
+    height: 320px;
     margin: auto;
+}
+
+.gameRow {
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+.gameSquare {
+    background-color: gray;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    flex-grow: 1;
+    display: inline-block;
+}
+
+.lastRow {
+    border-bottom: 0;
+}
+
+.lastSquareInRow {
+    border-right: 0;
+}
+
+/* Setting Space Styling */
+
+.settingSpace {
+    display: flex;
+    flex-wrap: wrap;
+    height: 3rem;
+    width: 300px;
+    margin: 3rem auto;
 }
