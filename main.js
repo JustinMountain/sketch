@@ -2,10 +2,42 @@
 let smallSize = 10;
 let mediumSize = 16;
 let largeSize = 24;
+let color = "purple";
+let isDrawing = false;
+let drawer;
 
-drawGameSpace(mediumSize);
+drawer = function(e) {
+    let target = e.target;
+    if(target.classList.contains('gameSquare')) {
+        target.style.backgroundColor = color;
+    }
+}
 
-// Setting Space Buttons
+// Color selection buttons
+const blackBtn = document.querySelector('#blackSelect');
+blackBtn.addEventListener('click', function (e) {
+    color = "black";
+});
+
+const colorBtn = document.querySelector('#colorSelect');
+colorBtn.addEventListener('click', function (e) {
+    const colorBox = document.querySelector('.colorBox');
+    const colorSelect = document.getElementById("colorSelect");
+    colorSelect.addEventListener("change", updateColor, false);
+    color = colorSelect.value;
+
+    function updateColor(event) {
+        color = colorSelect.value;
+        colorBox.style.backgroundColor = colorSelect.value;    
+    }
+});
+
+const eraseBtn = document.querySelector('#eraseSelect');
+eraseBtn.addEventListener('click', function (e) {
+    color = "";
+});
+
+// Setting space buttons
 const smallBtn = document.querySelector('#small');
 smallBtn.addEventListener('click', function (e) {
     drawGameSpace(smallSize);
@@ -50,6 +82,7 @@ function drawGameSpace(size) {
         for(j = 1; j <= size; j++) {
             const square = document.createElement('div');
             square.classList.add('gameSquare');
+            square.addEventListener('mouseover', drawer);
             
             row.appendChild(square);
 
@@ -72,3 +105,6 @@ function resetGameSpace() {
         rowRemove.remove();    
     }
 }
+
+// Initial drawing of the game space on page load
+drawGameSpace(mediumSize);

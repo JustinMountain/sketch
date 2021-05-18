@@ -91,7 +91,8 @@ a:focus {
     display: inline-block;
     width: 0.75rem;
     height: 0.75rem;
-    background-color: black;
+    background-color: #0500FF;
+;
 }
 
 /* Game Space Styling */
@@ -120,11 +121,6 @@ a:focus {
     border-bottom: 1px solid white;
     flex-grow: 1;
     display: inline-block;
-}
-
-.gameSquare:hover,
-.gameSquare:focus {
-    background-color: white;
 }
 
 .lastRow {
