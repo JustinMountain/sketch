@@ -2,14 +2,30 @@
 let smallSize = 10;
 let mediumSize = 16;
 let largeSize = 24;
-let color = "purple";
+let color = "black";
 let isDrawing = false;
 let drawer;
 
-drawer = function(e) {
+window.addEventListener('mousedown', e => {
+    isDrawing = true;
     let target = e.target;
-    if(target.classList.contains('gameSquare')) {
-        target.style.backgroundColor = color;
+        if(target.classList.contains('gameSquare')) {
+            target.style.backgroundColor = color;
+        }
+    console.log(isDrawing)
+});
+
+window.addEventListener('mouseup', e => {
+    isDrawing = false;
+    console.log(isDrawing)
+});
+
+drawer = function(e) {
+    if (isDrawing) {
+        let target = e.target;
+        if(target.classList.contains('gameSquare')) {
+            target.style.backgroundColor = color;
+        }
     }
 }
 
@@ -61,6 +77,17 @@ borderBtn.addEventListener('click', function (e) {
     let arr = Array.prototype.slice.call(gameSquares);
     for (let i = 0; i < arr.length; i++) {
         arr[i].classList.toggle('noBorder');
+    }
+});
+
+const resetBtn = document.querySelector('#reset');
+resetBtn.addEventListener('click', function (e) {
+    const gameSquares = document.querySelectorAll('.gameSquare');
+
+    // Convert to array and reset backgroundColor.value
+    let arr = Array.prototype.slice.call(gameSquares);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].style.backgroundColor = '';
     }
 });
 
