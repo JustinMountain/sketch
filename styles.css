@@ -103,6 +103,8 @@ a:focus {
     width: 320px;
     height: 320px;
     margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .gameRow {
@@ -120,12 +122,21 @@ a:focus {
     display: inline-block;
 }
 
+.gameSquare:hover,
+.gameSquare:focus {
+    background-color: white;
+}
+
 .lastRow {
     border-bottom: 0;
 }
 
 .lastSquareInRow {
     border-right: 0;
+}
+
+.noBorder {
+    border: none;
 }
 
 /* Setting Space Styling */

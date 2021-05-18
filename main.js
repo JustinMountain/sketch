@@ -1,5 +1,38 @@
-drawGameSpace(12);
+// Parameters
+let smallSize = 10;
+let mediumSize = 16;
+let largeSize = 24;
 
+drawGameSpace(mediumSize);
+
+// Setting Space Buttons
+const smallBtn = document.querySelector('#small');
+smallBtn.addEventListener('click', function (e) {
+    drawGameSpace(smallSize);
+});
+
+const mediumBtn = document.querySelector('#medium');
+mediumBtn.addEventListener('click', function (e) {
+    drawGameSpace(mediumSize);
+});
+
+const largeBtn = document.querySelector('#large');
+largeBtn.addEventListener('click', function (e) {
+    drawGameSpace(largeSize);
+});
+
+const borderBtn = document.querySelector('#border');
+borderBtn.addEventListener('click', function (e) {
+    const gameSquares = document.querySelectorAll('.gameSquare');
+
+    // Convert to array and toggle noBorder style
+    let arr = Array.prototype.slice.call(gameSquares);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].classList.toggle('noBorder');
+    }
+});
+
+// Function to draw the game space
 function drawGameSpace(size) {
     const gameSpace = document.querySelector('.gameSpace');
 
