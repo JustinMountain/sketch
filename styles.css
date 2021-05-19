@@ -30,8 +30,8 @@ html {
 .container {
     display: flex;
     flex-direction: column;
-    width: var(--width);
-    margin: 1rem auto;
+    width: 90%;
+    margin: 2rem auto;
     box-sizing: border-box;
     border: 3px solid black;
     border-radius: var(--outlineRadius);
@@ -212,4 +212,16 @@ a:focus {
 
 .displayNone {
     display: none;
+}
+
+@media screen and (min-width: 490px) {
+    .container {
+        min-width: 450px;
+        max-width: 500px;
+    }
+    
+.gameSpace {
+        width: 400px;
+        height: 400px;
+    }
 }
