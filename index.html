@@ -11,17 +11,27 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Etch-a-Sketch</h1>
+            <h1>Point-a-Sketch</h1>
         </div>
         <div class="main">
-            <div class="controlSpace">
-                <div class="control" id="blackSelect"><div class="blackBox"></div>Black</div>
-                <label class="control" for="colorSelect"><div class="colorBox"></div><input type="color" id="colorSelect" value="#0500FF" hidden>Color</label>
-                <div class="control" id="eraseSelect">Eraser</div>
-                
+            <div class="gameBorder">
+                <div class="gameSpace"></div>
             </div>
-            <div class="gameSpace"></div>
-            <div class="settingSpace">
+            <div class="controlSpace">
+                <div class="control" id="blackSelect">
+                    <div class="blackBox"></div>
+                    Black
+                </div>
+                <label class="control" for="colorSelect" id="colorButton">
+                    <div class="colorBox"></div>
+                    <input type="color" id="colorSelect" value="#0500FF" hidden>
+                    Color
+                </label>
+                <div class="control" id="eraseSelect">
+                    Eraser
+                </div>
+            </div>
+            <div class="settingSpace displayNone">
                 <div class="control" id="small">Small</div>
                 <div class="control" id="medium">Medium</div>
                 <div class="control" id="large">Large</div>
@@ -30,8 +40,9 @@
             </div>
         </div>
         <div class="footer">
-            <a href="https://github.com/JustinMountain/sketch">made by Justin</a>
-        </div>
+            <svg id="slider" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5a1 1 0 100 2 1 1 0 000-2zM5 6a3 3 0 116 0 3 3 0 01-6 0zM16 11a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0zM8 17a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"/><path d="M3 6a1 1 0 011-1h2a1 1 0 010 2H4a1 1 0 01-1-1zm6 0a1 1 0 011-1h10a1 1 0 110 2H10a1 1 0 01-1-1zm-6 6a1 1 0 011-1h10a1 1 0 110 2H4a1 1 0 01-1-1zm14 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zM3 18a1 1 0 011-1h2a1 1 0 110 2H4a1 1 0 01-1-1zm6 0a1 1 0 011-1h10a1 1 0 110 2H10a1 1 0 01-1-1z"/></svg>
+            <a href="https://github.com/JustinMountain/sketch"><p>made by Justin</p></a>
+            <svg id="tools" fill="currentColor" viewBox="0 0 24 24"><path d="M15.586 3a2 2 0 012.828 0L21 5.586a2 2 0 010 2.828l-12 12A2 2 0 017.586 21H5a2 2 0 01-2-2v-2.586A2 2 0 013.586 15l12-12zm-.172 3L18 8.586 19.586 7 17 4.414 15.414 6zm1.172 4L14 7.414l-9 9V19h2.586l9-9z"/></svg>        </div>
     </div>
 
     <script src="main.js"></script>

@@ -1,9 +1,24 @@
 /* Contents */
+    /* Typography */
+    /* Colors and Sizing */
     /* Page Structure  */
     /* Page Styles */
-    /* Control Space Styling */
     /* Game Space Styling */
+    /* Control Space Styling */
     /* Setting Space Styling */
+
+/* Typography */
+
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+
+/* Colors and Sizing */
+:root {
+    --red: red;
+    --pixelBackground: lightgray;
+    --textColor: gold;
+    --width: 320px;
+    --outlineRadius: 20px;
+}
 
 /* Page Structure  */
 
@@ -15,97 +30,99 @@ html {
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100%;
+    width: var(--width);
+    margin: 1rem auto;
+    box-sizing: border-box;
+    border: 3px solid black;
+    border-radius: var(--outlineRadius);
+    overflow: hidden;
+    box-shadow: 5px 5px 15px;
 }
 
 .header {
-    background-color: black;
-    color: white;
+    background-color: var(--red);
+    color: var(--textColor);
     text-align: center;
-    padding: 1rem 0;
+    text-shadow: 1px 1px 2px orange;
+    padding: 3rem 0;
     width: 100%;
 }
 
 .main {
     background-color: white;
     width: 100%;
-    flex-grow: 1;
+    flex-grow: 0;
 }
 
 .footer {
-    background-color: black;
-    color: white;
+    background-color: var(--red);
+    color: var(--textColor);
     text-align: center;
-    padding: 1rem 0;
-    margin-top: 5rem;
+    text-shadow: 1px 1px 2px orange;
+    padding: 2rem 0;
     width: 100%;
 }
 
 /* Page Styles */
 
 h1 {
-    padding: 2rem;
-    font-size: 2rem;
+    font-family: 'Pattaya', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
 }
 
 a {
-    color: white;
+    color: var(--textColor);
     text-decoration: none;
+}
+
+p {
+    display: inline-block;
+}
+
+svg {
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 a:hover, 
 a:focus {
+    color: var(--pixelBackground);
     text-decoration: underline;
+    text-shadow: 1px 1px 2px var(--pixelBackground);
 }
 
-/* Control Space Styling */
-
-.controlSpace {
-    display: flex;
-    height: 3rem;
-    width: 300px;
-    margin: 3rem auto;
-}
-
-.control {
+#slider {
+    padding-right: 3rem;
     display: inline-block;
-    align-self: center;
-    text-align: center;
-    flex-grow: 1;
-    padding: 1rem 0;
-    margin: 0.5rem;
-    border: 1px solid black;
-    border-radius: 10px;
     cursor: pointer;
 }
 
-.blackBox {
+#tools {
+    padding-left: 3rem;
     display: inline-block;
-    width: 0.75rem;
-    height: 0.75rem;
-    background-color: black;
-}
-
-.colorBox {
-    display: inline-block;
-    width: 0.75rem;
-    height: 0.75rem;
-    background-color: #0500FF;
-;
+    cursor: pointer;
 }
 
 /* Game Space Styling */
 
+.gameBorder {
+    background-color: var(--red);
+}
+
 .gameSpace {
-    background-color: black;
+    background-color: var(--red);
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    width: 320px;
-    height: 320px;
+    width: 290px;
+    height: 290px;
     margin: auto;
-    border-radius: 10px;
     overflow: hidden;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 
 .gameRow {
@@ -116,7 +133,7 @@ a:focus {
 }
 
 .gameSquare {
-    background-color: gray;
+    background-color: var(--pixelBackground);
     border-right: 1px solid white;
     border-bottom: 1px solid white;
     flex-grow: 1;
@@ -135,12 +152,64 @@ a:focus {
     border: none;
 }
 
+/* Control Space Styling */
+
+.controlSpace {
+    background-color: var(--red);
+    display: flex;
+    height: 3rem;
+    height: 3rem;
+    margin: 0 auto;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.control {
+    box-sizing: border-box;
+    display: inline-block;
+    align-self: center;
+    text-align: center;
+    flex-grow: 1;
+    padding: 1rem 0;
+    margin: 0.5rem;
+    border: 2px solid black;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.control:hover,
+.control:focus {
+    box-shadow: 0 0 5px var(--textColor);
+    border-color: orange;
+}
+
+.blackBox {
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: black;
+}
+
+.colorBox {
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: #0500FF;
+}
+
 /* Setting Space Styling */
 
 .settingSpace {
+    background-color: var(--red);
     display: flex;
     flex-wrap: wrap;
-    height: 3rem;
-    width: 300px;
-    margin: 3rem auto;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.displayNone {
+    display: none;
 }

@@ -29,44 +29,66 @@ drawer = function(e) {
     }
 }
 
+function selectControl(arg) {
+    // Reset all background colors first
+    const allButtons = document.querySelectorAll('.control');
+    let buttonArray = Array.prototype.slice.call(allButtons);
+    for (let i = 0; i < buttonArray.length; i++) {
+        buttonArray[i].style.backgroundColor = "";
+    }
+
+    // Set bg color to selected
+    arg.style.backgroundColor = "var(--pixelBackground)";
+}
+
 // Color selection buttons
 const blackBtn = document.querySelector('#blackSelect');
 blackBtn.addEventListener('click', function (e) {
     color = "black";
+    selectControl(blackBtn);
 });
 
 const colorBtn = document.querySelector('#colorSelect');
 colorBtn.addEventListener('click', function (e) {
     const colorBox = document.querySelector('.colorBox');
     const colorSelect = document.getElementById("colorSelect");
+    const colorButton = document.getElementById("colorButton");
+
     colorSelect.addEventListener("change", updateColor, false);
-    color = colorSelect.value;
 
     function updateColor(event) {
         color = colorSelect.value;
-        colorBox.style.backgroundColor = colorSelect.value;    
+        colorBox.style.backgroundColor = colorSelect.value;
+        selectControl(colorButton);
     }
 });
 
 const eraseBtn = document.querySelector('#eraseSelect');
 eraseBtn.addEventListener('click', function (e) {
     color = "";
+    selectControl(eraseBtn);
 });
 
 // Setting space buttons
 const smallBtn = document.querySelector('#small');
 smallBtn.addEventListener('click', function (e) {
-    drawGameSpace(smallSize);
+    if (window.confirm("Changing size will reset your progress.")) {
+        drawGameSpace(smallSize);
+    }
 });
 
 const mediumBtn = document.querySelector('#medium');
 mediumBtn.addEventListener('click', function (e) {
-    drawGameSpace(mediumSize);
+    if (window.confirm("Changing size will reset your progress.")) {
+        drawGameSpace(mediumSize);
+    }
 });
 
 const largeBtn = document.querySelector('#large');
 largeBtn.addEventListener('click', function (e) {
-    drawGameSpace(largeSize);
+    if (window.confirm("Changing size will reset your progress.")) {
+        drawGameSpace(largeSize);
+    }
 });
 
 const borderBtn = document.querySelector('#border');
@@ -82,13 +104,27 @@ borderBtn.addEventListener('click', function (e) {
 
 const resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click', function (e) {
-    const gameSquares = document.querySelectorAll('.gameSquare');
+    if (window.confirm("Do you really want to reset the drawing space?")) {
+        const gameSquares = document.querySelectorAll('.gameSquare');
 
-    // Convert to array and reset backgroundColor.value
-    let arr = Array.prototype.slice.call(gameSquares);
-    for (let i = 0; i < arr.length; i++) {
-        arr[i].style.backgroundColor = '';
+        // Convert to array and reset backgroundColor.value
+        let arr = Array.prototype.slice.call(gameSquares);
+        for (let i = 0; i < arr.length; i++) {
+            arr[i].style.backgroundColor = '';
+        }
     }
+});
+
+const settingsBtn = document.querySelector('#slider');
+settingsBtn.addEventListener('click', function (e) {
+    const settingSpace = document.querySelector('.settingSpace');
+    settingSpace.classList.toggle('displayNone');
+});
+
+const toolsBtn = document.querySelector('#tools');
+toolsBtn.addEventListener('click', function (e) {
+    const controlSpace = document.querySelector('.controlSpace');
+    controlSpace.classList.toggle('displayNone');
 });
 
 // Function to draw the game space
